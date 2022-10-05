@@ -1,6 +1,7 @@
+from datetime import date
+from modules.김진호 import menu, showData
 from modules.박선영 import getAddressInfo
 from modules.오의찬 import getProfessorInfos
-from modules.김진호 import menu, showData
 
 
 def getScheduleInfo(week: int):
@@ -63,3 +64,10 @@ def getScheduleInfo(week: int):
                 schedules[count - 1].append(scheduleInfo)
         showData(schedules[week])
         return True
+
+
+def updateLastBloodDonateDay(query=None):
+    file = open("../bloodDonateDay.dat", "w", encoding="utf-8")
+    today = date.today()
+    file.write("%s,%s,%s" % (today.year, today.month, today.day))
+    return "업데이트 되었습니다."

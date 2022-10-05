@@ -7,8 +7,8 @@ def menu(menus):
         return False
     else:
         value = int(value)
-        print(menus[value - 1])
         return menus[value - 1]["run"](menus[value - 1]["query"])
+
 
 def showData(data):
     if data is None:

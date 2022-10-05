@@ -1,3 +1,6 @@
+from modules.오의찬 import getLastBloodDonateDay
+
+
 def consoleClear():
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     return
@@ -30,3 +33,22 @@ def getLastDay(year, month):
         return 30
     else:
         return 31
+
+
+def getCanBloodDonateDay(query=None):
+    file = open("../bloodDonateDay.dat", "r", encoding="utf-8")
+
+    lastYear, lastMonth, lastDay = file.read().split(",")
+    lastYear = int(lastYear)
+    lastMonth = int(lastMonth)
+    lastDay = int(lastDay)
+
+    lastDay += 60
+    while lastDay > getLastDay(lastYear, lastMonth):
+        lastMonth += 1
+        if lastMonth > 12:
+            lastYear += 1
+            lastMonth -= 12
+        lastDay -= getLastDay(lastYear, lastMonth)
+
+    return "%d년 %d월 %d일에 다시 헌혈을 하실 수 있습니다." % (lastYear, lastMonth, lastDay)

@@ -20,3 +20,9 @@ def getProfessorInfos(subject):
         return None
     else:
         return professorInfo
+
+
+def getLastBloodDonateDay(query=None):
+    file = open("../bloodDonateDay.dat", "r", encoding="utf-8")
+    year, month, day = file.read().split(",")
+    return "%s년 %s월 %s일에 헌혈하셨습니다." % (year, month, day)
