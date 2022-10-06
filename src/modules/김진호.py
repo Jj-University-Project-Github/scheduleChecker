@@ -5,6 +5,8 @@ def menu(menus):
     value = input("원하는 번호를 선택해주세요.(N) : ")
     if value.lower() == 'n':
         return False
+    elif int(value) > len(menus):
+        return "잘못된 번호입니다."
     else:
         value = int(value)
         return menus[value - 1]["run"](menus[value - 1]["query"])

@@ -1,8 +1,8 @@
 from datetime import date
-from modules.성민우 import getScheduleInfo, updateLastBloodDonateDay
+from modules.성민우 import getScheduleInfo
 from modules.김진호 import menu
-from modules.박선영 import consoleClear, getCanBloodDonateDay
-from modules.오의찬 import getLastBloodDonateDay
+from modules.박선영 import getCanBloodDonateDay
+from modules.오의찬 import getLastBloodDonateDay, updateLastBloodDonateDay, consoleClear
 
 menus = [
     {

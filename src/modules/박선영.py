@@ -1,11 +1,3 @@
-from modules.오의찬 import getLastBloodDonateDay
-
-
-def consoleClear():
-    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-    return
-
-
 def getAddressInfo(name: str) -> str:
     file = open("./addressInfos.dat", 'r', encoding="utf-8")
     tempAddress = file.readlines()
@@ -36,7 +28,7 @@ def getLastDay(year, month):
 
 
 def getCanBloodDonateDay(query=None):
-    file = open("../bloodDonateDay.dat", "r", encoding="utf-8")
+    file = open("./bloodDonateDay.dat", "r", encoding="utf-8")
 
     lastYear, lastMonth, lastDay = file.read().split(",")
     lastYear = int(lastYear)
