@@ -31,3 +31,6 @@ schedule management program for software project
 
 > ### adressInfos.dat
 대학관이름,네이버주소를 통한 위성좌표 알리미
+
+> ### bloodDonateDay.dat  
+마지막으로 헌혈한 날을 저장하는 공간

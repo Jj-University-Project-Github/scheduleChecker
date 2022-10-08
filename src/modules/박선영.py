@@ -1,4 +1,10 @@
-def getAddressInfo(name: str) -> str:
+# 이름 : 박선영
+# 학번 : 202268022
+# 한일 : 주소를 불러와 출력해주는 함수와
+#       윤년을 계산하는 함수 
+#       다시 헌혈이 가능한 날을 불러오는 기능을 만들었습니다.
+
+def getAddressInfo(name):
     file = open("./addressInfos.dat", 'r', encoding="utf-8")
     tempAddress = file.readlines()
 
