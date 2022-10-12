@@ -12,7 +12,7 @@ menus = [
         "query": date.today().weekday()
     },
     {
-        "title": "월별 시간표 보기",
+        "title": "요일별 시간표 보기",
         "run": getScheduleInfo,
         "query": "Ask"
     },
