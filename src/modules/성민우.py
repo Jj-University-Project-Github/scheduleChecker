@@ -28,7 +28,7 @@ def getScheduleInfo(week):
     tempSchedule = file.readlines()
 
     schedules = []  # 가공된 스케쥴 정보(type = dict)가 저장되는 공간입니다.
-    count = 1  # 주일마다의 정보를 가공할때 핸들링을 위해 주일 시케쥴 수를 확인하는 변수입니다.
+    count = 1  # 주일마다의 정보를 가공할때 핸들링을 위해 주일 스케쥴 수를 확인하는 변수입니다.
 
     if week == "Ask":  # 원하는 주간 스케쥴 정보를 직접 입력할 때 사용하는 명령어 입니다.
         # 원하는 주일의 정보를 불러오는 메뉴입니다.
