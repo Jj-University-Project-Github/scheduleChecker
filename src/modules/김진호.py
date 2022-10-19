@@ -12,8 +12,8 @@ def menu(menus):
         print("[%d]. %s" % (i + 1, menus[i]["title"])) #n번째 메뉴 표현 및 n번째 메뉴의 제목 출력하기
     print() #입력줄을 나누기 위해 공백으로 print를 실행함.
     value = input("원하는 번호를 선택해주세요.(N) : ") #원하는 번호를 입력
-    if value.lower() == 'n': # 만약 입력받은 번호가 n 또는 N일 경우
-        return False # 종료 신호 반환
+    if value.lower() == 'n': #만약 입력받은 번호가 n 또는 N일 경우
+        return False #종료 신호 반환
     elif int(value) > len(menus) or int(value) < 0: #입력받은 번호가 기존 번호보다 크거나 0보다 작을 경우
         return "잘못된 번호입니다."
     else: #정상적으로 입력되었다면
