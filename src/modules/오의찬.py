@@ -18,14 +18,15 @@ def getProfessorInfos(subject):
     파일을 읽어 모든 줄의 내용을 리스트로 담습니다.
     """
 
-    professors = [] # 교수님의 정보가 담길 리스트입니다.
+    professors = []  # 교수님의 정보가 담길 리스트입니다.
 
     for i in tempProfessor:
         """
         위에서 교수님의 정보가 불려온 리스트를 가공하는 반복문입니다.
         이 반복문은 위 공백 리스트에 가공된 정보를 추가합니다.
         """
-        professorInfos = i.strip().split(',') # i번째 줄의 정보에서 양 끝의 공백란을 제거하고 ','를 기준으로 문자를 쪼개어 리스트화 합니다.
+        professorInfos = i.strip().split(
+            ',')  # i번째 줄의 정보에서 양 끝의 공백란을 제거하고 ','를 기준으로 문자를 쪼개어 리스트화 합니다.
         professorInfo = {
             "name": professorInfos[0],
             "lab": professorInfos[1],
@@ -35,11 +36,14 @@ def getProfessorInfos(subject):
             "subject": professorInfos[5]
         }
         professors.append(professorInfo)
-    professorInfo = [i for i in professors if i["subject"] == subject]
-    if len(professorInfo) == 0: # 만약 교수님의 정보가 하나도 확인되지 않는다면
-        return None # 없다고 반환
-    else: # 아닐경우
-        return professorInfo # 교수님의 정보를 반환
+    professorInfo = []
+    for i in professors:
+        if i["subject"] == subject:
+            professorInfo.append(i)
+    if len(professorInfo) == 0:  # 만약 교수님의 정보가 하나도 확인되지 않는다면
+        return None  # 없다고 반환
+    else:  # 아닐경우
+        return professorInfo  # 교수님의 정보를 반환
 
 
 def getLastBloodDonateDay(query=None):
@@ -51,6 +55,7 @@ def getLastBloodDonateDay(query=None):
     year, month, day = file.read().split(",")
     return "%s년 %s월 %s일에 헌혈하셨습니다." % (year, month, day)
 
+
 def updateLastBloodDonateDay(query=None):
     """
     마지막으로 헌혈한 날을 헌혈 정보 파일에 저장하는 함수로
@@ -60,6 +65,7 @@ def updateLastBloodDonateDay(query=None):
     today = date.today()
     file.write("%s,%s,%s" % (today.year, today.month, today.day))
     return "업데이트 되었습니다."
+
 
 def consoleClear():
     """
