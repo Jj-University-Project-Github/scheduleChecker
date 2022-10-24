@@ -7,26 +7,18 @@
 from datetime import date
 
 
-def getProfessorInfos(subject):
-    """
-    교수님의 정보를 불러오는 함수입니다.
-    """
+def getProfessorInfos(subject): #교수 정보를 불러오는 함수
 
     file = open("./professorInfos.dat", 'r', encoding="utf-8")
     tempProfessor = file.readlines()
     """
-    파일을 읽어 모든 줄의 내용을 리스트로 담습니다.
+    파일을 읽어 모든 줄의 내용을 리스트에 저장
     """
 
-    professors = []  # 교수님의 정보가 담길 리스트입니다.
+    professors = []  # 교수정보가 저장될 리스트
 
-    for i in tempProfessor:
-        """
-        위에서 교수님의 정보가 불려온 리스트를 가공하는 반복문입니다.
-        이 반복문은 위 공백 리스트에 가공된 정보를 추가합니다.
-        """
-        professorInfos = i.strip().split(
-            ',')  # i번째 줄의 정보에서 양 끝의 공백란을 제거하고 ','를 기준으로 문자를 쪼개어 리스트화 합니다.
+    for i in tempProfessor: # 위 교수정보가 저장된 리스트를 가공하는 반복문, 위 공백 리스트에 가공된 정보를 추가
+        professorInfos = i.strip().split(',')  # i번째 줄의 정보에서 양 끝의 공백란을 제거하고 ','를 기준으로 문자를 나눠 리스트화
         professorInfo = {
             "name": professorInfos[0],
             "lab": professorInfos[1],
@@ -35,11 +27,12 @@ def getProfessorInfos(subject):
             "email": professorInfos[4],
             "subject": professorInfos[5]
         }
-        professors.append(professorInfo)
-    professorInfo = []
+        professors.append(professorInfo)    # professors리스트 가장 마지막에 professorInfo 추가
+
+    professorInfo = []  #교수 정보중 하나를 배열로 저장
     for i in professors:
-        if i["subject"] == subject:
-            professorInfo.append(i)
+        if i["subject"] == subject: # schedulenlnfos의 과목 정보를 받아와 professorlnfos의 과목을 비교
+            professorInfo.append(i) # professorInfo리스트 가장 마지막에 i 추가
     if len(professorInfo) == 0:  # 만약 교수님의 정보가 하나도 확인되지 않는다면
         return None  # 없다고 반환
     else:  # 아닐경우
@@ -49,27 +42,27 @@ def getProfessorInfos(subject):
 def getLastBloodDonateDay(query=None):
     """
     마지막으로 헌혈한 날을 반환하는 함수로
-    헌혈 정보가 담긴 파일에서 헌혈 데이터를 불러와 출력합니다.
+    헌혈 정보가 담긴 파일에서 헌혈 데이터를 불러와 출력함
     """
     file = open("./bloodDonateDay.dat", "r", encoding="utf-8")
-    year, month, day = file.read().split(",")
+    year, month, day = file.read().split(",") #파일의 날짜 데이터를 나눔
     return "%s년 %s월 %s일에 헌혈하셨습니다." % (year, month, day)
 
 
 def updateLastBloodDonateDay(query=None):
     """
     마지막으로 헌혈한 날을 헌혈 정보 파일에 저장하는 함수로
-    datetime 라이브러리의 date 모듈을 활용하였습니다.
+    datetime 라이브러리의 date 모듈을 활용함
     """
     file = open("./bloodDonateDay.dat", "w", encoding="utf-8")
-    today = date.today()
-    file.write("%s,%s,%s" % (today.year, today.month, today.day))
+    today = date.today() #오늘 날짜를 받아옴
+    file.write("%s,%s,%s" % (today.year, today.month, today.day)) #받아온 날짜 데이터를 연, 월, 일 순으로 저장
     return "업데이트 되었습니다."
 
 
 def consoleClear():
     """
-    콘솔을 청소하는 함수입니다.
+    콘솔을 클리어하는 함수
     """
     print("\n" * 30)
     return
