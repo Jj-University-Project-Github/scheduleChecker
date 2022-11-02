@@ -2,7 +2,7 @@
 schedule management program for software project
 
 
-#구조
+구조
 ========
 > ### app.py  
 메인 파일로 전체적인 코드의 진행을 담당.
